@@ -25,6 +25,9 @@ public class Bus {
     @Column(name = "fecha_creacion", updatable = false)
     private LocalDateTime fechaCreacion; 
 
+    @Column(length = 255)
+    private String caracteristicas;
+
     @Column(nullable = false)
     private Boolean activo; 
 
