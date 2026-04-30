@@ -14,10 +14,46 @@ Se han cumplido todas las consideraciones obligatorias y se han añadido los sig
 * **Frontend Moderno:** Uso de React 18 con **TypeScript** y empaquetado con Vite para máximo rendimiento.
 
 ---
+## Estructura del Proyecto
+
+### Backend (Spring Boot)
+Se utilizó una arquitectura en capas estricta para mantener el código escalable y fácil de mantener.
+
+```text
+Backend/app/
+├── src/main/java/.../app/
+│   ├── config/          # Configuración de Seguridad y CORS
+│   ├── controller/      # Capa de presentación (Endpoints REST)
+│   ├── dto/             # Objetos de Transferencia de Datos
+│   ├── exception/       # Manejo global de errores (ControllerAdvice)
+│   ├── model/           # Capa de dominio (Entidades JPA)
+│   ├── repository/      # Capa de acceso a datos (Spring Data JPA)
+│   └── service/         # Capa de negocio (Lógica y mapeo)
+└── src/main/resources/
+    └── application.properties # Configuración de BD y entorno
+```
+
+### Frontend (React + TypeScript)
+La interfaz está diseñada con React y TypeScript, utilizando Vite como empaquetador. Se buscó una interfaz limpia y funcional.
+
+```text
+Frontend/
+├── src/
+│   ├── assets/          # Recursos estáticos e imágenes
+│   ├── components/      # Componentes de la interfaz (BusTable, UI)
+│   ├── services/        # Capa de red (Llamadas a la API con fetch)
+│   ├── types/           # Interfaces estrictas de TypeScript
+│   ├── App.tsx          # Componente raíz
+│   └── main.tsx         # Punto de entrada de la aplicación Vite
+└── package.json         # Gestión de dependencias y scripts
+```
+---
 
 ## Demostración de la Aplicación
 
-(image.png)![alt text](image-1.png)![alt text](image-2.png)
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 ---
 
@@ -47,7 +83,7 @@ Se han cumplido todas las consideraciones obligatorias y se han añadido los sig
 ### 1. Configuración de la Base de Datos
 1. Abre tu gestor de PostgreSQL (pgAdmin).
 2. Crea una base de datos vacía llamada `civa`.
-3. (Opcional) Las tablas se crearán automáticamente con Hibernate. Puedes ejecutar el script SQL adjunto en el repositorio para poblar datos de prueba.
+3. Ejecuta el script SQL ubicado en `/database/script_db.sql`. Crea una flota de prueba de 15 buses con servicios Excluciva, Superciva y Econociva.
 
 ### 2. Levantar el Backend (Spring Boot)
 1. Navega a la carpeta del backend:
