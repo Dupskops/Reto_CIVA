@@ -8,9 +8,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import com.apibus.spring.app.exception.ResourceNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true) //Leera la base de datos
 public class BusServiceImpl implements BusService {
     private final BusRepository busRepository;
     
@@ -27,8 +30,8 @@ public class BusServiceImpl implements BusService {
     public BusResponseDTO obtenerBusPorId(Long id) {
         // Busqueda del bus por id
         Bus bus = busRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("No se encontró el bus con ID: " + id));
-        
+                .orElseThrow(() -> new ResourceNotFoundException("No se encontró el bus con ID: " + id));
+
         return mapearADto(bus);
     }
 
