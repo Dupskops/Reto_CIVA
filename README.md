@@ -17,11 +17,11 @@ Se han cumplido todas las consideraciones obligatorias y se han añadido los sig
 
 ## Demostración de la Aplicación
 
-![Demostración de la App]![alt text](image.png)![alt text](image-1.png)![alt text](image-2.png)
+(image.png)![alt text](image-1.png)![alt text](image-2.png)
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 **Backend:**
 * Java 26
